@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css (global styles) */
+:root {
+    /* Design tokens */
+    --primary-white: rgba(255, 255, 255, 0.9);
+    --primary-black: #000;
+    --primary-red: #ff3333;
+    --accent-gold: #eb23bf;
+    --text-dark: #333;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    background: url('./194875.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* Container principal */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.Accueil {
+    background-color: #000000;
+    border: 2px solid #eb23bf;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px #000000;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    position: fixed;
+    top: 2px; /* Ajustez cette valeur selon vos besoins */
+    left: 10px; /* Ajustez cette valeur selon vos besoins */
+    z-index: 1000; /* Assurez-vous que le bouton est au-dessus des autres éléments */
+}
+
+.Accueil:hover {
+    background-color: #eb23bf;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Accueil-link {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    color: #eb23bf;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.2s;
+}
+
+.Accueil-link:hover {
+    color: #000;
+}

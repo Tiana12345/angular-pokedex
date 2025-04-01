@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="./pokemon-list.component.css">
+
+
+
+<div class="choix">
+  <div>
+    <label for="typeSelect" class="luxury-label">Choisir un type :</label>
+    <select #typeSelect class="luxury-select" (change)="onTypeChange(typeSelect.value)">
+      @for (type of types; track $index) {
+      <option [value]="type" class="luxury-option"> {{type}} </option>
+      }
+    </select>
+  </div>
+  <div>
+    <label for="genSelect" class="luxury-label">Choisir une génération :</label>
+    <select #genSelect class="luxury-select" (change)="onGenerationChange(genSelect.value)">
+      @for (gen of gens; track $index) {
+      <option [value]="gen" class="luxury-option"> {{gen}} </option>
+      }
+    </select>
+  </div>
+</div>
+
+
+<div class="pokemon-list">
+  @for (pokemon of pokemonList; track $index; let i = $index) {
+  <div class="pokemon-card" [routerLink]="'/pokemon/'+ pokemon.id">
+    <div class="card-header">
+      <h2>{{pokemon.name}}</h2>
+      <span class="pokemon-id">#{{pokemon.id}}</span>
+    </div>
+    <p class="pokemon-images">
+      <img [src]="pokemon.sprites.front_default" alt="Illustration de {{ pokemon.name }}" class="pokemon-image">
+      <img [src]="pokemon.sprites.front_shiny" alt="Illustration de {{ pokemon.name }}" class="pokemon-image">
+    </p>
+  </div>
+  }
+</div>
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 0" class="pagination-button">Précédent</button>
+  <button (click)="nextPage()" class="pagination-button">Suivant</button>
+</div>

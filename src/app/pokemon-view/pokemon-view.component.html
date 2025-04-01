@@ -1,0 +1,43 @@
+<header>
+    <link rel="stylesheet" href="./pokemon-view.component.css">
+</header>
+
+<body>
+    <div class="pokemon-card">
+        <div class="card-header">
+            <h2>{{pokemon.name}}</h2>
+            <span class="pokemon-id">#{{pokemon.id}}</span>
+        </div>
+        
+        <div class="card-section images-container">
+            <div class="pokemon-image">
+                <h3>Standard</h3>
+                <img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}">
+            </div>
+            <div class="pokemon-image">
+                <h3>Shiny</h3>
+                <img [src]="pokemon.sprites.front_shiny" alt="{{pokemon.name}} shiny">
+            </div>
+        </div>
+        
+        <div class="card-section stats-container">
+            <div class="stat-box">
+                <span class="stat-label">Hauteur</span>
+                <span class="stat-value">{{pokemon.height / 10}} m</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Poids</span>
+                <span class="stat-value">{{pokemon.weight / 10}} kg</span>
+            </div>
+        </div>
+        
+        <div class="card-section types-container">
+            <h3>Éléments</h3>
+            <div class="types-list">
+                @for (elem of pokemon.types; track $index){
+                    <div class="type-badge {{elem.type.name}}">{{elem.type.name}}</div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
